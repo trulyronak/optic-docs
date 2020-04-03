@@ -4,20 +4,32 @@ This will host a bunch of documentation on how to setup [Optic](https://useoptic
 
 ## API Frameworks
 
-- [ ] express
-- [ ] flask
-- [ ] laravel
-- [ ] spring.io / spring boot
-- [ ] django
-- [ ] fastapi
-- [ ] pheonix
-- [ ] asp.net core
-- [ ] ruby on rails
-- [ ] rocket
-- [ ] pistache
-- [ ] cpprestsdk
-- [ ] actix-web
-- [ ] hapijs
+- Node.js
+	- [X] express
+	- [X] sailsjs
+	- [ ] phoenix
+	- [ ] hapijs
+- Python
+	- [ ] flask
+	- [ ] django
+	- [ ] fastapi
+- Java
+	- [ ] spring.io / spring boot
+- Rails
+	- [ ] ruby on rails
+	- [ ] puma.io
+- Golang
+	- [ ] mux
+- PHP
+	- [ ] laravel
+- .Net
+	- [ ] asp.net core
+- Rust
+	- [ ] rocket
+	- [ ] actix-web
+- C++
+	- [ ] pistache
+	- [ ] cpprestsdk
 
 
 ## How to Run The Docs

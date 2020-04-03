@@ -19,6 +19,8 @@ How to add Optic to a Node JS API
 ### Express <span class="label label-green">Supported</span> <span class="label label-yellow">Requires Code Change</span>
 All Express APIs contain a call to `app.listen(...)`. Just update this line to look for Optic's environment variable first:
 
+**Note**: If you are using [`express-generator`](https://expressjs.com/en/starter/generator.html), the `app.listen` call is located in `./bin/www`
+
 #### Before
 ```javascript
 app.listen(port || 3000)
