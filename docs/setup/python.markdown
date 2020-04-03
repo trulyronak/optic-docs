@@ -17,35 +17,56 @@ How to add Optic to a Python API
 ---
 
 ### Flask <span class="label label-green">Supported</span> <span class="label label-yellow">Requires Code Change</span>
-All Express APIs contain a call to `app.listen(...)`. Just update this line to look for Optic's environment variable first:
+All Flask APIs contain a call to `app.run(...)`. Just update this line to pass in Optic's environment variable first:
 
-**Note**: If you are using [`express-generator`](https://expressjs.com/en/starter/generator.html), the `app.listen` call is located in `./bin/www`
 
 #### Before
-```javascript
-app.listen(port || 3000)
+```python
+app.run(port=5000)
 ```
 
 #### After
-```javascript
-app.listen(process.env.OPTIC_API_PORT || port || 3000)
+```python
+app.run(port=os.environ['OPTIC_API_PORT'] if 'OPTIC_API_PORT' in os.environ else 5000)
+```
+
+**Note**: If you are using [`flask run`](https://flask.palletsprojects.com/en/1.1.x/cli/), simply adjust flask run to pass in the port
+#### Before
+```bash
+flask run
+```
+
+#### After
+```bash
+flask run --port=$OPTIC_API_PORT
 ```
 
 Now when Optic runs your start command, your API will start on the port Optic assigns it.
 
-### Django <span class="label label-green">Supported</span> <span class="label label-green">No Code Changes</span>
-If you use the `sails lift` command to start your Sails app, you just have to update your start command in your `optic.yml` file:
+### Django <span class="label label-green">Supported</span> <span class="label label-yellow">Requires Code Change</span>
+Django runs by its `manage.py` file. To allow for optic, simply adjust it to use the Optic API Port
 
 #### Before
-```yaml
-start:
-  command: sails lift
+```python
+... # other code
+def main():
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+    try:
+        from django.core.management import execute_from_command_line
+... # other code
 ```
 
 #### After
-```yaml
-start:
-  command: sails lift --port $OPTIC_API_PORT
+```python
+... # other code
+def main():
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+    try:
+        from django.core.management import execute_from_command_line
+        # Add Optic CLI as a port option
+        from django.core.management.commands.runserver import Command as runserver
+        runserver.default_port = os.environ['OPTIC_API_PORT'] if 'OPTIC_API_PORT' in os.environ else 8080
+... # other code
 ```
 
 Now when Optic runs your start command, your API will start on the port Optic assigns it.

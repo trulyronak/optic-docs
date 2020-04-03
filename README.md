@@ -10,8 +10,8 @@ This will host a bunch of documentation on how to setup [Optic](https://useoptic
 	- [ ] phoenix
 	- [ ] hapijs
 - Python
-	- [ ] flask
-	- [ ] django
+	- [X] flask
+	- [X] django
 	- [ ] fastapi
 - Java
 	- [ ] spring.io / spring boot
