@@ -71,6 +71,25 @@ def main():
 
 Now when Optic runs your start command, your API will start on the port Optic assigns it.
 
+
+### FastAPI <span class="label label-green">Supported</span> <span class="label label-green">No Code Changes</span>
+If you use the `uvicorn` command to start your FastAPI app, you just have to update your start command in your `optic.yml` file:
+
+#### Before
+```yaml
+start:
+  command: uvicorn main:app # assuming your app is called main.py
+```
+
+#### After
+```yaml
+start:
+  command: uvicorn main:app --port $OPTIC_API_PORT # assuming your app is called main.py
+```
+
+Now when Optic runs your start command, your API will start on the port Optic assigns it.
+
+
 ---
 
 {% include_relative shared-check.markdown %}

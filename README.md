@@ -7,17 +7,15 @@ This will host a bunch of documentation on how to setup [Optic](https://useoptic
 - Node.js
 	- [X] express
 	- [X] sailsjs
-	- [ ] phoenix
-	- [ ] hapijs
+	- [X] hapijs
 - Python
 	- [X] flask
 	- [X] django
-	- [ ] fastapi
+	- [X] fastapi
 - Java
 	- [ ] spring.io / spring boot
-- Rails
-	- [ ] ruby on rails
-	- [ ] puma.io
+- Ruby
+	- [X] ruby on rails or puma
 - Golang
 	- [ ] mux
 - PHP
@@ -30,6 +28,8 @@ This will host a bunch of documentation on how to setup [Optic](https://useoptic
 - C++
 	- [ ] pistache
 	- [ ] cpprestsdk
+- Elixir
+	- [X] phoenix
 
 
 ## How to Run The Docs

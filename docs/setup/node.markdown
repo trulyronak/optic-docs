@@ -50,6 +50,36 @@ start:
 
 Now when Optic runs your start command, your API will start on the port Optic assigns it.
 
+
+
+---
+
+{% include_relative shared-check.markdown %}
+
+
+### Hapi <span class="label label-green">Supported</span> <span class="label label-yellow">Requires Code Change</span>
+If you use `Hapi.server()` to start your server, simply configure it to check for Optic's environment variable first.
+
+#### Before
+```javascript
+const server = Hapi.server({
+    port: 3000,
+    host: 'localhost'
+});
+```
+
+#### After
+```javascript
+const server = Hapi.server({
+    port: process.env.OPTIC_API_PORT || 3000,
+    host: 'localhost'
+});
+```
+
+Now when Optic runs your start command, your API will start on the port Optic assigns it.
+
+
+
 ---
 
 {% include_relative shared-check.markdown %}
