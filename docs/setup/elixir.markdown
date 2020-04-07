@@ -7,7 +7,7 @@ parent: "Starting your API with Optic"
 permalink: /setup/elixir
 ---
 
-# Node
+# Elixir
 
 How to add Optic to a Elixir API
 {: .fs-5 .fw-300 }

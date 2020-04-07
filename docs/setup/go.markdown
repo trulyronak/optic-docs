@@ -3,11 +3,11 @@ layout: default
 title: Go
 nav_order: 1
 description: ""
-parent: "Starting your API with Go"
-permalink: /setup/golang
+parent: "Starting your API with Optic"
+permalink: /setup/go
 ---
 
-# Node
+# Go
 
 How to add Optic to a Golang API
 {: .fs-5 .fw-300 }

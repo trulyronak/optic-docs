@@ -7,7 +7,7 @@ parent: "Starting your API with Optic"
 permalink: /setup/ruby
 ---
 
-# Python
+# Ruby
 
 How to add Optic to a Ruby API
 {: .fs-5 .fw-300 }

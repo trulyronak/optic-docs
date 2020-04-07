@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Rust
+title: CPP
 nav_order: 1
 description: ""
-parent: "Starting your API with Optic"
-permalink: /setup/rust
+parent: "Starting your API with CPP"
+permalink: /setup/cpp
 ---
 
-# Rust
+# CPP
 
-How to add Optic to a Rust API
+How to add Optic to a CPP API
 {: .fs-5 .fw-300 }
 
 {% include_relative shared.markdown %}
