@@ -26,7 +26,7 @@ This will host a bunch of documentation on how to setup [Optic](https://useoptic
 	- [X] rocket
 	- [X] actix-web
 - C++
-	- [ ] pistache
+	- [X] pistache
 	- [ ] cpprestsdk
 - Elixir
 	- [X] phoenix

@@ -16,85 +16,45 @@ How to add Optic to a C++ API
 
 ---
 
-### Rocket <span class="label label-green">Supported</span> <span class="label label-green">No Code Changes Option</span> <span class="label label-yellow">Requires Code Change Option</span>
+### Pistache.io <span class="label label-green">Supported</span><span class="label label-yellow">Requires Code Change</span>
 
-If you use `Config::build()`, you can simply modify it to check for Optic's environment variable.
+Simply modify your `Http::Endpoint` address to check for Optic's environment variable first!
 
 #### Before
-```rust
-use rocket::config::{Config, Environment};
-use std::env;
+```cpp
+int main() {
+    Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(8000));
+    auto opts = Pistache::Http::Endpoint::options()
+        .threads(1);
 
-let config = Config::build(Environment::Staging)
-    .port(8000)
-    .unwrap();
-
-rocket::custom(config)
-    .mount("/", routes![hello])
-    .launch();
-```
-
-#### After
-```rust
-use rocket::config::{Config, Environment};
-use std::env;
-
-let mut port = 8000;
-match env::var("OPTIC_API_PORT") {
-    Ok(val) => port = val.parse::<u16>().unwrap(),
-    Err(e) => {}
+    Http::Endpoint server(addr);
+    server.init(opts);
+    server.setHandler(Http::make_handler<HelloHandler>());
+    server.serve();
 }
-
-let config = Config::build(Environment::Staging)
-    .port(port)
-    .unwrap();
-
-rocket::custom(config)
-    .mount("/", routes![hello])
-    .launch();
-```
-
-**Note**: If you use `rocket::ignite()`, you can instead modify the start command to set `ROCKET_PORT` to be Optic's environment variable.
-
-#### Alternative Approach
-
-#### Before
-```yaml
-start:
-  command: cargo run
 ```
 
 #### After
-```yaml
-start:
-  command: export ROCKET_PORT=$OPTIC_API_PORT ; cargo run
-```
+```cpp
+#include <stdlib.h>
+#include <string>
+...
 
-Now when Optic runs your start command, your API will start on the port Optic assigns it.
+int main() {
+    int port = 8000;
+    if (getenv("OPTIC_API_PORT")) {
+            std::string s = getenv ("OPTIC_API_PORT");
+            port = std::stoi(s);
+    }
+    Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(port));
+    auto opts = Pistache::Http::Endpoint::options()
+        .threads(1);
 
-### Actix <span class="label label-green">Supported</span> <span class="label label-yellow">Requires Code Change Option</span>
-
-Simply modify your `HttpServer.bind()` call to check for Optic's environment variable.
-
-#### Before
-```rust
-HttpServer::new(...)
-    .bind("127.0.0.1:8000")?
-    .run()
-    .await
-```
-
-#### After
-```rust
-
-let port = env::var("OPTIC_API_PORT").unwrap_or_else(|e| {
-    return "8000".to_string()
-});
-
-HttpServer::new(...)
-    .bind(format!("127.0.0.1:{}" , port))?
-    .run()
-    .await
+    Http::Endpoint server(addr);
+    server.init(opts);
+    server.setHandler(Http::make_handler<HelloHandler>());
+    server.serve();
+}
 ```
 
 Now when Optic runs your start command, your API will start on the port Optic assigns it.
