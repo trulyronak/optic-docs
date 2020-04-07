@@ -17,14 +17,14 @@ This will host a bunch of documentation on how to setup [Optic](https://useoptic
 - Ruby
 	- [X] ruby on rails or puma
 - Golang
-	- [ ] mux
+	- [X] mux
 - PHP
 	- [ ] laravel
 - .Net
 	- [ ] asp.net core
 - Rust
-	- [ ] rocket
-	- [ ] actix-web
+	- [X] rocket
+	- [X] actix-web
 - C++
 	- [ ] pistache
 	- [ ] cpprestsdk
