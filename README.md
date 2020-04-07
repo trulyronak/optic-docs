@@ -13,13 +13,13 @@ This will host a bunch of documentation on how to setup [Optic](https://useoptic
 	- [X] django
 	- [X] fastapi
 - Java
-	- [ ] spring.io / spring boot
+	- [X] spring.io / spring boot
 - Ruby
 	- [X] ruby on rails or puma
 - Golang
 	- [X] mux
 - PHP
-	- [ ] laravel
+	- [X] laravel
 - .Net
 	- [ ] asp.net core
 - Rust

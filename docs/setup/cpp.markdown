@@ -1,15 +1,15 @@
 ---
 layout: default
-title: CPP
+title: C++
 nav_order: 1
 description: ""
-parent: "Starting your API with CPP"
+parent: "Starting your API with Optic"
 permalink: /setup/cpp
 ---
 
 # CPP
 
-How to add Optic to a CPP API
+How to add Optic to a C++ API
 {: .fs-5 .fw-300 }
 
 {% include_relative shared.markdown %}
