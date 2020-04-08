@@ -7,7 +7,7 @@ parent: "Starting your API with Optic"
 permalink: /setup/cpp
 ---
 
-# CPP
+# C++
 
 How to add Optic to a C++ API
 {: .fs-5 .fw-300 }
