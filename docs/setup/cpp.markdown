@@ -1,9 +1,10 @@
 ---
 layout: default
-title: C++
+title: CPP
 nav_order: 1
 description: ""
 parent: "Starting your API with Optic"
+has_children: true
 permalink: /setup/cpp
 ---
 
@@ -16,75 +17,9 @@ How to add Optic to a C++ API
 
 ---
 
-### Pistache.io <span class="label label-green">Supported</span><span class="label label-yellow">Requires Code Change</span>
+Frameworks with Documentation:
 
-Simply modify your `Http::Endpoint` address to check for Optic's environment variable first!
 
-#### Before
-```cpp
-int main() {
-    Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(8000));
-    auto opts = Pistache::Http::Endpoint::options()
-        .threads(1);
-
-    Http::Endpoint server(addr);
-    server.init(opts);
-    server.setHandler(Http::make_handler<HelloHandler>());
-    server.serve();
-}
-```
-
-#### After
-```cpp
-#include <stdlib.h>
-#include <string>
-...
-
-int main() {
-    int port = 8000;
-    if (getenv("OPTIC_API_PORT")) {
-            std::string s = getenv ("OPTIC_API_PORT");
-            port = std::stoi(s);
-    }
-    Pistache::Address addr(Pistache::Ipv4::any(), Pistache::Port(port));
-    auto opts = Pistache::Http::Endpoint::options()
-        .threads(1);
-
-    Http::Endpoint server(addr);
-    server.init(opts);
-    server.setHandler(Http::make_handler<HelloHandler>());
-    server.serve();
-}
-```
-
-### CppRestSDK <span class="label label-green">Supported</span><span class="label label-yellow">Requires Code Change</span>
-
-Simply modify your `Http::Endpoint` address to check for Optic's environment variable first!
-
-#### Before
-```cpp
-
-utility::string_t port = U("5000");
-
-utility::string_t address = U("http://127.0.0.1:");
-address.append(port);
-on_initialize(address);
-
-```
-
-#### After
-```cpp
-std::string portStr = "5000";
-if (getenv("OPTIC_API_PORT")) {
-    portStr =  getenv ("OPTIC_API_PORT");
-}
-utility::string_t port = U(portStr);
-
-utility::string_t address = U("http://127.0.0.1:");
-address.append(port);
-```
-
-**Note**: If you've already configured your `cpprestsdk` server to look for an enviornment variable, you can also update your start command in `optic.yml` to use the environment variable `$OPTIC_API_PORT`
 
 
 Now when Optic runs your start command, your API will start on the port Optic assigns it.
