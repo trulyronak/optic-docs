@@ -21,7 +21,7 @@ This will host a bunch of documentation on how to setup [Optic](https://useoptic
 - PHP
 	- [X] laravel
 - .Net
-	- [ ] asp.net core
+	- [X] asp.net core
 - Rust
 	- [X] rocket
 	- [X] actix-web
