@@ -19,11 +19,8 @@ How to add Optic to a C++ API
 
 Frameworks with Documentation:
 
-
-
-
-Now when Optic runs your start command, your API will start on the port Optic assigns it.
-
+1. [CPPRestSDK](http://localhost:4000/setup/cpp/restsdk)
+2. [Pistache](http://localhost:4000/setup/cpp/pistache)
 
 ---
 
